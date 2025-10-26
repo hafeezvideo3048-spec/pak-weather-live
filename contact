@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - Pak Weather Live</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Contact Us</h1>
+  <p>Email: <a href="mailto:hafeezvideo3048@gmail.com">hafeezvideo3048@gmail.com</a></p>
+  <p>We love hearing from our users. Send your feedback or suggestions anytime!</p>
+</body>
+</html>
