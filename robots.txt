@@ -1,3 +1,12 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://pak-weather-live.vercel.app/sitemap.xml
+
+# Optional (for AdSense and performance)
+User-agent: AdsBot-Google
+Disallow:
+
+User-agent: Mediapartners-Google
+Disallow:
+
