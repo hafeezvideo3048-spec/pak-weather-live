@@ -1,81 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- ✅ Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3852114227003077"
-    crossorigin="anonymous"></script>
-
-  <!-- ✅ Google Site Verification -->
-  <meta name="google-site-verification" content="F11OUIVDq_Iq4Jd2djxxuDy6GyMqGaDueXy1WIAunu4" />
-
-  <!-- ✅ Basic Page Settings -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ✅ SEO Meta Tags -->
-  <title>Pakistan Weather Today | Live Weather Updates for All Cities | Pak Weather Live</title>
-  <meta name="description" content="Get live weather updates for all cities in Pakistan including Lahore, Karachi, Islamabad and more. Check real-time temperature, humidity, and forecasts with Pak Weather Live.">
-  <meta name="keywords" content="Pakistan weather, Lahore weather, Karachi weather, Islamabad temperature, weather updates, Pakistan forecast, live weather, today temperature, rain updates, Pak Weather Live">
-  <meta name="author" content="Pak Weather Live Team">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pak Weather Live | پاکستان کا روزانہ تازہ موسم</title>
+  <meta name="description" content="Get real-time weather updates for every city in Pakistan. Pak Weather Live provides accurate temperature, humidity, wind speed, and rain alerts — updated automatically.">
+  <meta name="keywords" content="Pakistan weather, Lahore weather, Karachi weather, Islamabad forecast, live weather updates, Pak Weather Live, Pakistan temperature">
+  <meta name="author" content="Pak Weather Live">
   <meta name="robots" content="index, follow">
-
-  <!-- ✅ Open Graph (Facebook, WhatsApp, etc.) -->
-  <meta property="og:title" content="Pakistan Weather Today | Live Weather Updates for All Cities">
-  <meta property="og:description" content="Get real-time weather updates for Lahore, Karachi, Islamabad, and other cities in Pakistan.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://pak-weather-live.vercel.app">
-  <meta property="og:site_name" content="Pak Weather Live">
-  <meta property="og:image" content="https://pak-weather-live.vercel.app/images/weather.jpg">
-
-  <!-- ✅ Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pakistan Weather Today | Live Weather Updates">
-  <meta name="twitter:description" content="Check real-time weather conditions for all Pakistani cities with Pak Weather Live.">
-  <meta name="twitter:image" content="https://pak-weather-live.vercel.app/images/weather.jpg">
-
-  <!-- ✅ Canonical URL -->
-  <link rel="canonical" href="https://pak-weather-live.vercel.app" />
-
-  <!-- ✅ Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-  <!-- ✅ Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="canonical" href="https://pak-weather-live.vercel.app/">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Pak Weather Live",
+    "url": "https://pak-weather-live.vercel.app/",
+    "description": "Daily live weather updates for all Pakistani cities with real-time temperature, humidity, and conditions.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://pak-weather-live.vercel.app/?city={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
-
 <body>
-  <!-- ✅ Navigation Bar -->
-  <nav style="background:#0066cc; padding:10px; text-align:center;">
-    <a href="index.html" style="color:white; margin:0 10px;">Home</a>
-    <a href="about.html" style="color:white; margin:0 10px;">About</a>
-    <a href="contact.html" style="color:white; margin:0 10px;">Contact</a>
-    <a href="privacy.html" style="color:white; margin:0 10px;">Privacy Policy</a>
-  </nav>
-
-  <header>
-    <h1>🌦 Pak Weather Live | پاکستان کا موسم</h1>
-    <p>Get instant weather updates for any city in Pakistan</p>
+  <header class="site-header">
+    <div class="container">
+      <h1>Pak Weather Live</h1>
+      <p class="tagline">Welcome — <span class="urdu">پاکستان کا روزانہ تازہ موسم</span></p>
+    </div>
   </header>
 
-  <main>
-    <input type="text" id="city" placeholder="Enter city name (e.g. Lahore)" />
-    <button onclick="getWeather()">Check Weather</button>
-
-    <div id="weatherResult"></div>
-
-    <!-- ✅ SEO Text -->
-    <section style="margin-top:20px;">
-      <h2>Today Weather Updates for Lahore, Karachi, Islamabad & All Cities in Pakistan</h2>
-      <p>Check today's temperature, humidity, and forecast for any city in Pakistan. Get instant and accurate live weather
-        updates for Lahore, Karachi, Islamabad, Peshawar, Multan, and all other major cities across Pakistan with Pak
-        Weather Live.</p>
+  <main class="container">
+    <section class="hero">
+      <h2 class="hero-title">Live Weather for Any City — فوراً موسم دیکھیں</h2>
+      <p class="hero-desc">
+        Type a city name (e.g., Karachi / لاہور) and get instant weather updates powered by OpenWeatherMap.
+        This page automatically shows accurate temperature, wind speed, and humidity based on your city.
+      </p>
+      <div class="search-box hero-search">
+        <input id="cityInput" type="text" placeholder="Enter city name — شہر کا نام لکھیں" aria-label="City name" />
+        <button id="checkBtn">Check Weather</button>
+      </div>
     </section>
-  </main>
 
-  <footer>
-    <p>© 2025 Pak Weather Live | All Rights Reserved</p>
-  </footer>
+    <section id="result" class="result hidden" aria-live="polite">
+      <div class="result-left">
+        <img id="weatherImage" src="images/weather-bg.svg" alt="weather" />
+      </div>
+      <div class="result-right">
+        <h3 id="cityName">City, Country</h3>
+        <p id="description" class="desc">Condition</p>
+        <ul class="stats">
+          <li>Temperature: <span id="temp">--</span> °C</li>
+          <li>Feels like: <span id="feels">--</span> °C</li>
+          <li>Humidity: <span id="humidity">--</span>%</li>
+          <li>Wind: <span id="wind">--</span> m/s</li>
+        </ul>
+        <p id="updated" class="updated">Last update: --</p>
+      </div>
+    </section>
 
-  <script src="script.js"></script>
-</body>
-</html>
+    <!-- ✅ NEW CONTENT FOR ADSENSE COMPLIANCE -->
+    <section class="info">
+      <h2>Pakistan Weather Updates — Live & Accurate</h2>
+      <p>
+        Pak Weather Live provides the most accurate, real-time weather information for all cities in Pakistan.
+        Whether you live in Karachi, Lahore, Islamabad, Peshawar, or Quetta — we keep you updated with temperature,
+        humidity, and rainfall alerts every few minutes.
+      </p>
+      <p>
+        This website uses verified data sources including OpenWeather API and presents results in a user-friendly format.
+        Our goal is to make weather information freely accessible and useful for students, travelers, and citizens across Pakistan.
+      </p>
+      <p>
+        The information shared here is for general awareness only and should not be used for aviation or emergency purposes.
+        For
