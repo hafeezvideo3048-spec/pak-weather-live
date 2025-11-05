@@ -1,132 +1,170 @@
 <!doctype html>
 <html lang="en">
-<head><nav class="main-nav">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="privacy.html">Privacy Policy</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pak Weather Live | پاکستان کا روزانہ تازہ موسم</title>
-  <meta name="description" content="Get real-time weather updates for every city in Pakistan. Pak Weather Live provides accurate temperature, humidity, wind speed, and rain alerts — updated automatically.">
-  <meta name="keywords" content="Pakistan weather, Lahore weather, Karachi weather, Islamabad forecast, live weather updates, Pak Weather Live, Pakistan temperature">
+  <meta name="description" content="Pak Weather Live provides real-time, accurate weather updates for all Pakistani cities — including temperature, humidity, and rainfall alerts.">
+  <meta name="keywords" content="Pakistan weather, Karachi weather, Lahore weather, Islamabad weather, weather forecast, Pak Weather Live, live temperature">
   <meta name="author" content="Pak Weather Live">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pak-weather-live.vercel.app/">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Pak Weather Live",
-    "url": "https://pak-weather-live.vercel.app/",
-    "description": "Daily live weather updates for all Pakistani cities with real-time temperature, humidity, and conditions.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://pak-weather-live.vercel.app/?city={search_term_string}",
-      "query-input": "required name=search_term_string"
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f2f6fc;
+      color: #222;
     }
-  }
-  </script>
+    header {
+      background: #0b3d91;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+    }
+    header h1 { margin: 0; }
+    nav {
+      background: #084298;
+      text-align: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover { text-decoration: underline; }
+    main {
+      max-width: 700px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 { color: #0b3d91; margin-top: 0; }
+    .search-box {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-box input {
+      width: 70%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .search-box button {
+      background: #0b3d91;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .search-box button:hover {
+      background: #062c66;
+    }
+    #weatherResult {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    footer {
+      background: #0b3d91;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+    footer a { color: #fff; text-decoration: underline; }
+    .info-section {
+      margin-top: 25px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1>Pak Weather Live</h1>
-      <p class="tagline">Welcome — <span class="urdu">پاکستان کا روزانہ تازہ موسم</span></p>
-    </div>
+  <header>
+    <h1>Pak Weather Live</h1>
+    <p>پاکستان کا روزانہ تازہ موسم — Live Weather Updates for Every City</p>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h2 class="hero-title">Live Weather for Any City — فوراً موسم دیکھیں</h2>
-      <p class="hero-desc">
-        Type a city name (e.g., Karachi / لاہور) and get instant weather updates powered by OpenWeatherMap.
-        This page automatically shows accurate temperature, wind speed, and humidity based on your city.
-      </p>
-      <div class="search-box hero-search">
-        <input id="cityInput" type="text" placeholder="Enter city name — شہر کا نام لکھیں" aria-label="City name" />
-        <button id="checkBtn">Check Weather</button>
-      </div>
-    </section>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-    <section id="result" class="result hidden" aria-live="polite">
-      <div class="result-left">
-        <img id="weatherImage" src="images/weather-bg.svg" alt="weather" />
-      </div>
-      <div class="result-right">
-        <h3 id="cityName">City, Country</h3>
-        <p id="description" class="desc">Condition</p>
-        <ul class="stats">
-          <li>Temperature: <span id="temp">--</span> °C</li>
-          <li>Feels like: <span id="feels">--</span> °C</li>
-          <li>Humidity: <span id="humidity">--</span>%</li>
-          <li>Wind: <span id="wind">--</span> m/s</li>
-        </ul>
-        <p id="updated" class="updated">Last update: --</p>
-      </div>
-    </section>
+  <main>
+    <h2>Check Live Weather</h2>
+    <div class="search-box">
+      <input id="city" type="text" placeholder="Enter city name — شہر کا نام لکھیں" />
+      <button onclick="getWeather()">Check Weather</button>
+    </div>
 
-    <!-- ✅ NEW CONTENT FOR ADSENSE COMPLIANCE -->
-    <section class="info">
-      <h2>Pakistan Weather Updates — Live & Accurate</h2>
-      <p>
-        Pak Weather Live provides the most accurate, real-time weather information for all cities in Pakistan.
-        Whether you live in Karachi, Lahore, Islamabad, Peshawar, or Quetta — we keep you updated with temperature,
-        humidity, and rainfall alerts every few minutes.
-      </p>
-      <p>
-        This website uses verified data sources including OpenWeather API and presents results in a user-friendly format.
-        Our goal is to make weather information freely accessible and useful for students, travelers, and citizens across Pakistan.
-      </p>
-      <p>
-        The information shared here is for general awareness only and should not be used for aviation or emergency purposes.
-        For official alerts, please refer to the Pakistan Meteorological Department.
-      </p>
-    </section>
+    <div id="weatherResult">Type a city name above to see live weather details.</div>
 
-    <section class="about">
-      <h2>About Us / ہمارے بارے میں</h2>
+    <div class="info-section">
+      <h3>About Pak Weather Live</h3>
       <p>
-        Pak Weather Live ایک عوامی معلوماتی ویب سائٹ ہے جو پاکستان کے تمام شہروں کے لئے تازہ موسم کی تفصیلات فراہم کرتی ہے۔
-        یہ پلیٹ فارم OpenWeatherMap API استعمال کرتا ہے تاکہ درجہ حرارت، ہوا کی رفتار، نمی اور بارش کی تازہ ترین معلومات دکھائی جائیں۔
-        ہم اس بات کو یقینی بناتے ہیں کہ معلومات درست، تازہ اور صارف کے لیے آسان انداز میں پیش کی جائیں۔
-      </p>
-    </section>
-
-    <section class="privacy-note">
-      <h2>Privacy & Terms</h2>
-      <p>
-        We respect your privacy. This website does not collect, store, or share any personal information.
-        It only takes the city name you type to show public weather data. No cookies or tracking are used.
+        Pak Weather Live provides real-time weather information across Pakistan.
+        You can instantly check temperature, humidity, wind speed, and rainfall updates for cities like Lahore, Karachi, Islamabad, and Quetta.
       </p>
       <p>
-        By using this website, you agree to view data that comes from third-party APIs such as OpenWeatherMap.
-        For any queries or removal requests, please contact us directly.
+        This website uses verified data from <strong>OpenWeatherMap API</strong> and updates automatically every few minutes.
+        We focus on accuracy, simplicity, and public benefit — ensuring that people can plan their day with confidence.
       </p>
-    </section>
-
-    <section class="disclaimer">
-      <h2>Disclaimer</h2>
       <p>
-        The weather information displayed here is automatically updated from trusted data providers.
-        Pak Weather Live does not guarantee 100% accuracy and is not responsible for any decisions made
-        based on the data shown. This site follows Google AdSense and Webmaster Content Quality guidelines.
+        For official warnings or emergency alerts, please refer to the Pakistan Meteorological Department (PMD).
       </p>
-    </section>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Pak Weather Live — Informational weather portal for Pakistan.<br>
-      Contact: <a href="mailto:hafeezvideo3048@gmail.com">hafeezvideo3048@gmail.com</a></p>
-    </div>
+  <footer>
+    <p>© 2025 Pak Weather Live | Email: <a href="mailto:hafeezvideo3048@gmail.com">hafeezvideo3048@gmail.com</a></p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    async function getWeather() {
+      const city = document.getElementById('city').value.trim();
+      const apiKey = "9bfb1b3ceca8abc8d244f976a01cc732";
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+      const resultDiv = document.getElementById('weatherResult');
+
+      if (city === "") {
+        resultDiv.innerHTML = "<p>Please enter a city name.</p>";
+        return;
+      }
+
+      resultDiv.innerHTML = "<p>Loading weather data...</p>";
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.cod === 200) {
+          resultDiv.innerHTML = `
+            <h3>${data.name}, ${data.sys.country}</h3>
+            <p>🌡 Temperature: ${data.main.temp} °C</p>
+            <p>💧 Humidity: ${data.main.humidity}%</p>
+            <p>🌥 Condition: ${data.weather[0].description}</p>
+            <p>💨 Wind Speed: ${data.wind.speed} m/s</p>
+          `;
+        } else {
+          resultDiv.innerHTML = "<p>City not found. Try again.</p>";
+        }
+      } catch (error) {
+        resultDiv.innerHTML = "<p>Error fetching weather data.</p>";
+      }
+    }
+  </script>
 </body>
 </html>
