@@ -1,40 +1,22 @@
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    padding:0;
+.main-nav {
+  background: #0b3d91;
+  text-align: center;
+  padding: 10px 0;
 }
-
-header,footer{
-    text-align:center;
-    background:#0099ff;
-    color:#fff;
-    padding:15px 0;
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
-nav{
-    text-align:center;
-    background:#e6f0ff;
-    padding:10px 0;
+.main-nav li {
+  display: inline-block;
+  margin: 0 15px;
 }
-
-nav a{
-    margin:0 10px;
-    text-decoration:none;
-    color:#000;
+.main-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
 }
-
-#forecast-container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-    padding:20px;
-}
-
-.forecast-card{
-    background:#f2f2f2;
-    padding:10px;
-    border-radius:8px;
-    width:150px;
-    text-align:center;
+.main-nav a:hover {
+  text-decoration: underline;
 }
