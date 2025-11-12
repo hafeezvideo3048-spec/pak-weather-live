@@ -1,95 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily Quotes - Motivational & Inspirational Sayings</title>
-  <meta name="description" content="Daily Quotes brings you motivational, inspirational, and life-changing thoughts to help you grow with positivity every day." />
-
-  <!-- AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3852114227003077"
-          crossorigin="anonymous"></script>
-
-  <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f8f8f8; color: #222; }
-    header, footer { background: #333; color: #fff; text-align: center; padding: 20px; }
-    nav a { color: #fff; margin: 0 10px; text-decoration: none; }
-    main { padding: 30px; max-width: 900px; margin: auto; background: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    h1, h2 { color: #333; }
-    blockquote { background: #eee; padding: 15px; border-left: 4px solid #555; font-style: italic; margin: 20px 0; transition: 0.5s; }
-    button { background: #333; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; }
-    button:hover { background: #555; }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pak Weather Live | پاکستان کا روزانہ تازہ موسم</title>
+  <meta name="description" content="Pak Weather Live provides real-time weather updates for all Pakistani cities. Check current temperature, humidity, and wind speed instantly!">
+  <meta name="keywords" content="Pakistan weather, Lahore weather, Karachi weather, Islamabad weather, live weather updates, Pak Weather Live">
+  <meta name="author" content="Pak Weather Live">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yourdomain.example/">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "WebSite", "name": "Pak Weather Live", "url": "https://yourdomain.example/", "description": "Daily live weather updates for all Pakistani cities with real-time temperature, humidity, and conditions.", "potentialAction": { "@type": "SearchAction", "target": "https://yourdomain.example/?city={search_term_string}", "query-input": "required name=search_term_string" } }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>Daily Quotes</h1>
-    <nav>
-      <a href="/">Home</a> |
-      <a href="about.html">About</a> |
-      <a href="contact.html">Contact</a> |
-      <a href="privacy.html">Privacy Policy</a>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <h1>Pak Weather Live</h1>
+      <p class="tagline">Welcome — <span class="urdu">پاکستان کا روزانہ تازہ موسم</span></p>
+    </div>
   </header>
 
-  <main>
-<p>Welcome to Pak Weather Live — bringing reliable local forecasts and practical weather tips. Below you'll find today's summary and a 7-day outlook to help plan your week.</p>
-<p>پاکستان میں موسمیات کے بارے میں معلومات فراہم کرنا ہمارا مقصد ہے۔ یہ صفحہ آپ کو آج کے موسم، ہوا کی رفتار، درجۂ حرارت، اور آنے والے سات دن کا عمومی رجحان بتاتا ہے۔</p>
+  <main class="container">
+    <section class="hero">
+      <h2 class="hero-title">Live Weather for Any City — فوراً موسم دیکھیں</h2>
+      <p class="hero-desc">Type a city name (e.g., Karachi / لاہور) and get instant weather updates powered by OpenWeatherMap.</p>
+      <div class="search-box hero-search">
+        <input id="cityInput" type="text" placeholder="Enter city name — شہر کا نام لکھیں" aria-label="City name" />
+        <button id="checkBtn">Check Weather</button>
+      </div>
+    </section>
 
-    <h2>Welcome to Daily Quotes</h2>
-    <p>
-      At <strong>Daily Quotes</strong>, we believe that a few inspiring words can change the direction of your day — and your life.
-      Each quote shared here is carefully chosen to boost motivation, confidence, and positivity.
-    </p>
+    <section id="result" class="result hidden" aria-live="polite">
+      <div class="result-left">
+        <img id="weatherImage" src="images/weather-bg.svg" alt="weather" />
+      </div>
+      <div class="result-right">
+        <h3 id="cityName">City, Country</h3>
+        <p id="description" class="desc">Condition</p>
+        <ul class="stats">
+          <li>Temperature: <span id="temp">--</span> °C</li>
+          <li>Feels like: <span id="feels">--</span> °C</li>
+          <li>Humidity: <span id="humidity">--</span>%</li>
+          <li>Wind: <span id="wind">--</span> m/s</li>
+        </ul>
+        <p id="updated" class="updated">Last update: --</p>
+      </div>
+    </section>
 
-    <blockquote id="quoteBox">Loading today's inspiration...</blockquote>
-    <button onclick="newQuote()">Show Another Quote</button>
+    <section class="about">
+      <h2>About / بارے میں</h2>
+      <p>
+        Pak Weather Live is an informational site that shows live weather data for cities using the OpenWeatherMap API.
+        یہ ویب سائٹ OpenWeatherMap API استعمال کر کے شہر کے موسم کی تازہ معلومات دکھاتی ہے۔
+      </p>
+    </section>
 
-    <p>
-      Our mission is to fill your day with positive thoughts and wisdom.  
-      You can visit this site daily to read fresh motivational quotes and success lessons from great thinkers.
-      Bookmark this page and make reading a quote part of your morning habit.
-    </p>
+    <section class="privacy-note">
+      <h2>Privacy & Terms</h2>
+      <p>We do not store personal data. This site only requests city names to fetch public weather information from OpenWeatherMap.</p>
+    </section>
+  </main>
 
-    <h3>Categories of Quotes:</h3>
-    <ul>
-      <li>Motivation & Self-Improvement</li>
-      <li>Success & Leadership</li>
-      <li>Happiness & Peace of Mind</li>
-      <li>Wisdom & Life Lessons</li>
-    </ul>
-
-    <p>
-      Whether you’re a student, professional, or entrepreneur, these words are meant to keep your mind clear and your goals strong.
-    </p>
-  
-<p>Weekly forecast: Expect variations across regions—some areas will see rain while others remain clear. Always check hourly updates for sudden changes. Safety tip: carry an umbrella during monsoon and stay hydrated.</p>
-<!-- ADSENSE_SAFE_PLACEHOLDER: Place AdSense code after first 2 paragraphs inside main/article -->
-</main>
-
-  <footer>
-    <p>&copy; 2025 Daily Quotes | All Rights Reserved</p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Pak Weather Live — For information only. Contact: <a href="mailto:hafeezvideo3048@gmail.com">hafeezvideo3048@gmail.com</a></p>
+    </div>
   </footer>
 
-  <script>
-    const quotes = [
-      "“Success is not final, failure is not fatal: it is the courage to continue that counts.” – Winston Churchill",
-      "“The only way to do great work is to love what you do.” – Steve Jobs",
-      "“Believe you can and you're halfway there.” – Theodore Roosevelt",
-      "“Don’t watch the clock; do what it does. Keep going.” – Sam Levenson",
-      "“Happiness is not something ready-made. It comes from your own actions.” – Dalai Lama",
-      "“Start where you are. Use what you have. Do what you can.” – Arthur Ashe",
-      "“Push yourself, because no one else is going to do it for you.”"
-    ];
-
-    function newQuote() {
-      const randomIndex = Math.floor(Math.random() * quotes.length);
-      document.getElementById("quoteBox").innerHTML = quotes[randomIndex];
-    }
-
-    // Auto-change every 10 seconds
-    setInterval(newQuote, 10000);
-    newQuote();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
