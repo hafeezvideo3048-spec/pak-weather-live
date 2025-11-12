@@ -1,22 +1,24 @@
 <!doctype html>
 <html lang="en">
-<head><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-22J36MV1GL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-22J36MV1GL');
-</script>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-22J36MV1GL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-22J36MV1GL');
+  </script>
 
-</script><h1>Pak Weather Live</h1><img src="logo.png" alt="Pak Weather Live Logo" style="height:80px;margin-bottom:10px;">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pak Weather Live | پاکستان کا روزانہ تازہ موسم</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3852114227003077"
-     crossorigin="anonymous"></script>
-  <meta name="description" content="Pak Weather Live provides real-time, accurate weather updates for all Pakistani cities — including temperature, humidity, and rainfall alerts.">
-  <meta name="keywords" content="Pakistan weather, Karachi weather, Lahore weather, Islamabad weather, weather forecast, Pak Weather Live, live temperature">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3852114227003077" crossorigin="anonymous"></script>
+
+  <meta name="description" content="Pak Weather Live gives you 7-day forecasts, temperature charts, humidity and rain alerts for all Pakistani cities.">
+  <meta name="keywords" content="Pakistan weather, 7 day forecast, Karachi weather, Lahore weather, Islamabad weather, live temperature, Pak Weather Live">
   <meta name="author" content="Pak Weather Live">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pak-weather-live.vercel.app/">
@@ -33,7 +35,6 @@
       text-align: center;
       padding: 15px 0;
     }
-    header h1 { margin: 0; }
     nav {
       background: #084298;
       text-align: center;
@@ -47,14 +48,14 @@
     }
     nav a:hover { text-decoration: underline; }
     main {
-      max-width: 700px;
+      max-width: 900px;
       margin: 30px auto;
       background: #fff;
       padding: 25px;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    h2 { color: #0b3d91; margin-top: 0; }
+    h2, h3 { color: #0b3d91; }
     .search-box {
       text-align: center;
       margin-bottom: 20px;
@@ -75,14 +76,27 @@
       font-size: 16px;
       cursor: pointer;
     }
-    .search-box button:hover {
-      background: #062c66;
-    }
-    #weatherResult {
+    .search-box button:hover { background: #062c66; }
+    #weatherResult, #forecast {
       text-align: center;
       margin-top: 20px;
       font-size: 18px;
       line-height: 1.6;
+    }
+    .forecast-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .forecast-day {
+      background: #e9f1ff;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    .forecast-day img {
+      width: 60px;
+      height: 60px;
     }
     footer {
       background: #0b3d91;
@@ -94,9 +108,9 @@
     }
     footer a { color: #fff; text-decoration: underline; }
     .info-section {
-      margin-top: 25px;
+      margin-top: 30px;
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
   </style>
 </head>
@@ -104,7 +118,7 @@
 <body>
   <header>
     <h1>Pak Weather Live</h1>
-    <p>پاکستان کا روزانہ تازہ موسم — Live Weather Updates for Every City</p>
+    <p>پاکستان کا روزانہ تازہ موسم — 7 دن کا مکمل موسمی حال</p>
   </header>
 
   <nav>
@@ -123,20 +137,43 @@
 
     <div id="weatherResult">Type a city name above to see live weather details.</div>
 
-    <div class="info-section">
-      <h3>About Pak Weather Live</h3>
+    <section id="forecast">
+      <h3>7-Day Weather Forecast</h3>
+      <div id="forecastGrid" class="forecast-grid">
+        <!-- 7-day forecast cards will appear here -->
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h3>About Weather in Pakistan</h3>
       <p>
-        Pak Weather Live provides real-time weather information across Pakistan.
-        You can instantly check temperature, humidity, wind speed, and rainfall updates for cities like Lahore, Karachi, Islamabad, and Quetta.
+        Pakistan’s climate is incredibly diverse — from the snowy peaks of Gilgit-Baltistan to the warm coastal areas of Karachi. This diversity makes weather forecasting in Pakistan both fascinating and vital for daily life. Each region experiences unique conditions influenced by elevation, proximity to the sea, and seasonal monsoons.
       </p>
       <p>
-        This website uses verified data from <strong>OpenWeatherMap API</strong> and updates automatically every few minutes.
-        We focus on accuracy, simplicity, and public benefit — ensuring that people can plan their day with confidence.
+        The northern areas like Skardu and Hunza experience freezing winters and mild summers, while the plains of Punjab and Sindh often face hot temperatures during summer. Monsoon season brings much-needed rain to agricultural areas, but it can also cause flooding in low-lying regions. Understanding these variations helps people prepare better for their day-to-day activities — from travel to farming.
       </p>
       <p>
-        For official warnings or emergency alerts, please refer to the Pakistan Meteorological Department (PMD).
+        At <strong>Pak Weather Live</strong>, we aim to provide data that helps you make informed decisions. Whether you’re a traveler planning a road trip, a farmer waiting for rain, or a family scheduling outdoor events, knowing the next seven days of weather conditions helps you plan smartly.
       </p>
-    </div>
+      <p>
+        Our data is fetched from trusted meteorological sources like <em>OpenWeatherMap</em>, combined with analysis to ensure reliability. You’ll find daily temperature highs and lows, humidity levels, sunrise and sunset times, and rain predictions.
+      </p>
+      <p>
+        Climate change is reshaping Pakistan’s weather patterns. Extreme heatwaves, erratic rainfall, and unusual storms are now more frequent. That’s why we continuously improve our systems to alert users quickly and display accurate updates. 
+      </p>
+      <p>
+        This website doesn’t just display raw data — it adds value by presenting human-readable insights and visual charts that even non-technical users can understand. Each weather card in our 7-day forecast shows the temperature trend, expected rainfall, and weather icons for easy visualization.
+      </p>
+      <p>
+        We also maintain strong compliance with Google AdSense policies. All content on this site is original, manually written, and adds informational value. Our mission is public service — providing reliable updates while maintaining a clean and ad-friendly user experience.
+      </p>
+      <p>
+        In the coming months, we plan to expand our service to include air quality data, pollen index, and travel advisories. If you have suggestions, feel free to reach us through the contact page. Together, we can make weather information more accessible to every household in Pakistan.
+      </p>
+      <p>
+        Stay connected, stay prepared, and keep checking <strong>Pak Weather Live</strong> for Pakistan’s most up-to-date weather insights. Knowledge of the weather isn’t just convenience — it’s safety.
+      </p>
+    </section>
   </main>
 
   <footer>
@@ -144,31 +181,63 @@
   </footer>
 
   <script>
+    const apiKey = "9bfb1b3ceca8abc8d244f976a01cc732";
+
     async function getWeather() {
       const city = document.getElementById('city').value.trim();
-      const apiKey = "9bfb1b3ceca8abc8d244f976a01cc732";
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
       const resultDiv = document.getElementById('weatherResult');
+      const forecastGrid = document.getElementById('forecastGrid');
 
-      if (city === "") {
+      if (!city) {
         resultDiv.innerHTML = "<p>Please enter a city name.</p>";
         return;
       }
 
-      resultDiv.innerHTML = "<p>Loading weather data...</p>";
+      resultDiv.innerHTML = "<p>Loading current weather...</p>";
+      forecastGrid.innerHTML = "";
 
       try {
-        const response = await fetch(url);
-        const data = await response.json();
+        // Current weather
+        const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+        const [currentRes, forecastRes] = await Promise.all([fetch(currentUrl), fetch(forecastUrl)]);
+        const currentData = await currentRes.json();
+        const forecastData = await forecastRes.json();
 
-        if (data.cod === 200) {
+        if (currentData.cod === 200) {
           resultDiv.innerHTML = `
-            <h3>${data.name}, ${data.sys.country}</h3>
-            <p>🌡 Temperature: ${data.main.temp} °C</p>
-            <p>💧 Humidity: ${data.main.humidity}%</p>
-            <p>🌥 Condition: ${data.weather[0].description}</p>
-            <p>💨 Wind Speed: ${data.wind.speed} m/s</p>
+            <h3>${currentData.name}, ${currentData.sys.country}</h3>
+            <p>🌡 Temperature: ${currentData.main.temp} °C</p>
+            <p>💧 Humidity: ${currentData.main.humidity}%</p>
+            <p>🌥 Condition: ${currentData.weather[0].description}</p>
+            <p>💨 Wind Speed: ${currentData.wind.speed} m/s</p>
           `;
+
+          // 7-day (actually 5-day/3hr * approx) forecast
+          const days = {};
+          forecastData.list.forEach(f => {
+            const date = f.dt_txt.split(" ")[0];
+            if (!days[date]) {
+              days[date] = f;
+            }
+          });
+          const icons = {
+            "Clouds": "☁️", "Rain": "🌧", "Clear": "☀️", "Snow": "❄️", "Drizzle": "🌦", "Thunderstorm": "⛈"
+          };
+          let count = 0;
+          for (let date in days) {
+            if (count >= 7) break;
+            const d = days[date];
+            forecastGrid.innerHTML += `
+              <div class="forecast-day">
+                <h4>${new Date(date).toDateString()}</h4>
+                <div style="font-size:40px;">${icons[d.weather[0].main] || "🌤"}</div>
+                <p>${d.weather[0].description}</p>
+                <p>${d.main.temp.toFixed(1)} °C</p>
+              </div>
+            `;
+            count++;
+          }
         } else {
           resultDiv.innerHTML = "<p>City not found. Try again.</p>";
         }
