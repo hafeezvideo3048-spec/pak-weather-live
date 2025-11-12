@@ -1,24 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Pak Weather Live</title>
-  <meta name="description" content="Contact Pak Weather Live for feedback or collaboration.">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Pak Weather Live</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header"><div class="container"><h1>Pak Weather Live</h1></div></header>
-  <main class="container">
-    <h2>Contact / رابطہ کریں</h2>
-    <p>For feedback, partnerships, or inquiries email us at: <a href="mailto:hafeezvideo3048@gmail.com">hafeezvideo3048@gmail.com</a></p>
-    <form class="contact-form" onsubmit="alert('Form placeholder — contact via email.'); return false;">
-      <input type="text" placeholder="Your name / نام" required>
-      <input type="email" placeholder="Email / ای میل" required>
-      <textarea placeholder="Message / پیغام" required></textarea>
-      <button type="submit">Send</button>
+<header>
+    <h1>Contact Us</h1>
+</header>
+<nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="privacy.html">Privacy Policy</a>
+</nav>
+<main>
+    <form>
+        <label for="name">Name / نام:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email / ای میل:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message / پیغام:</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+        <button type="submit">Send / بھیجیں</button>
     </form>
-  </main>
-  <footer class="site-footer"><div class="container"><p>Contact: <a href="mailto:hafeezvideo3048@gmail.com">hafeezvideo3048@gmail.com</a></p></div></footer>
+</main>
+<footer>
+    <p>&copy; 2025 Pak Weather Live</p>
+</footer>
 </body>
 </html>
