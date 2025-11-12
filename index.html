@@ -1,74 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pak Weather Live | پاکستان کا روزانہ تازہ موسم</title>
-  <meta name="description" content="Pak Weather Live provides real-time weather updates for all Pakistani cities. Check current temperature, humidity, and wind speed instantly!">
-  <meta name="keywords" content="Pakistan weather, Lahore weather, Karachi weather, Islamabad weather, live weather updates, Pak Weather Live">
-  <meta name="author" content="Pak Weather Live">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://yourdomain.example/">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebSite", "name": "Pak Weather Live", "url": "https://yourdomain.example/", "description": "Daily live weather updates for all Pakistani cities with real-time temperature, humidity, and conditions.", "potentialAction": { "@type": "SearchAction", "target": "https://yourdomain.example/?city={search_term_string}", "query-input": "required name=search_term_string" } }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pak Weather Live</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1>Pak Weather Live</h1>
-      <p class="tagline">Welcome — <span class="urdu">پاکستان کا روزانہ تازہ موسم</span></p>
-    </div>
-  </header>
+    <header>
+        <h1>Pak Weather Live</h1>
+        <p>پاکستان کا تازہ ترین موسم | Latest Weather Forecast</p>
+    </header>
 
-  <main class="container">
-    <section class="hero">
-      <h2 class="hero-title">Live Weather for Any City — فوراً موسم دیکھیں</h2>
-      <p class="hero-desc">Type a city name (e.g., Karachi / لاہور) and get instant weather updates powered by OpenWeatherMap.</p>
-      <div class="search-box hero-search">
-        <input id="cityInput" type="text" placeholder="Enter city name — شہر کا نام لکھیں" aria-label="City name" />
-        <button id="checkBtn">Check Weather</button>
-      </div>
-    </section>
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="privacy.html">Privacy Policy</a>
+    </nav>
 
-    <section id="result" class="result hidden" aria-live="polite">
-      <div class="result-left">
-        <img id="weatherImage" src="images/weather-bg.svg" alt="weather" />
-      </div>
-      <div class="result-right">
-        <h3 id="cityName">City, Country</h3>
-        <p id="description" class="desc">Condition</p>
-        <ul class="stats">
-          <li>Temperature: <span id="temp">--</span> °C</li>
-          <li>Feels like: <span id="feels">--</span> °C</li>
-          <li>Humidity: <span id="humidity">--</span>%</li>
-          <li>Wind: <span id="wind">--</span> m/s</li>
-        </ul>
-        <p id="updated" class="updated">Last update: --</p>
-      </div>
-    </section>
+    <main>
+        <section id="weather">
+            <h2>7-Day Weather Forecast</h2>
+            <div id="forecast-container"></div>
+        </section>
 
-    <section class="about">
-      <h2>About / بارے میں</h2>
-      <p>
-        Pak Weather Live is an informational site that shows live weather data for cities using the OpenWeatherMap API.
-        یہ ویب سائٹ OpenWeatherMap API استعمال کر کے شہر کے موسم کی تازہ معلومات دکھاتی ہے۔
-      </p>
-    </section>
+        <section id="tips">
+            <h2>Weather Tips / موسم کے مشورے</h2>
+            <p>Stay hydrated, carry an umbrella if rain is expected, and wear light clothing in hot weather. | پانی زیادہ پئیں، بارش کی صورت میں چھتری ساتھ رکھیں، اور گرم موسم میں ہلکے کپڑے پہنیں۔</p>
+        </section>
+    </main>
 
-    <section class="privacy-note">
-      <h2>Privacy & Terms</h2>
-      <p>We do not store personal data. This site only requests city names to fetch public weather information from OpenWeatherMap.</p>
-    </section>
-  </main>
+    <footer>
+        <p>&copy; 2025 Pak Weather Live | AdSense-friendly layout</p>
+    </footer>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 Pak Weather Live — For information only. Contact: <a href="mailto:hafeezvideo3048@gmail.com">hafeezvideo3048@gmail.com</a></p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
