@@ -16,7 +16,7 @@
   <meta name="description" content="Pak Weather Live provides accurate daily weather updates for all Pakistani cities in Urdu and English.">
   <meta name="keywords" content="Pakistan weather, Urdu weather, Lahore weather, Karachi weather, forecast">
   <meta name="author" content="Pak Weather Live">
-  <link rel="canonical" href="https://pak-weather-live.vercel.app/">
+  <link rel="canonical" href="https://pakweatherlive.online/">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3852114227003077"
      crossorigin="anonymous"></script>
 
@@ -30,7 +30,7 @@
     .lang-toggle{text-align:center;margin:10px;}
     .lang-toggle button{margin:5px;padding:8px 16px;background:#0b3d91;border:none;border-radius:6px;color:white;cursor:pointer;font-weight:bold;}
     .lang-toggle button:hover{background:#062c66;}
-    .slideshow{max-width:800px;margin:20px auto;border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+    .slides{max-width:800px;margin:20px auto;border-radius:10px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.2);}
     .slides img{width:100%;height:400px;object-fit:cover;display:none;}
     main{max-width:800px;margin:30px auto;background:#fff;padding:25px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.1);}
     .search-box{text-align:center;margin-bottom:20px;}
@@ -63,13 +63,13 @@
     <button onclick="setLanguage('ur')">اردو</button>
   </div>
 
-  <div class="slideshow">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Lahore_skyline.jpg" alt="Punjab">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Karachi_skyline.jpg" alt="Sindh">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Peshawar_city.jpg" alt="Khyber Pakhtunkhwa">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Quetta_city.jpg" alt="Balochistan">
-</div>
-
+  <!-- ✅ Local Images Slideshow -->
+  <div class="slides">
+    <img src="/images/punjab.jpg" alt="Punjab">
+    <img src="/images/sindh.jpg" alt="Sindh">
+    <img src="/images/kpk.jpg" alt="Khyber Pakhtunkhwa">
+    <img src="/images/balochistan.jpg" alt="Balochistan">
+  </div>
 
   <main>
     <h2 id="weatherTitle">Check Live Weather</h2>
@@ -110,7 +110,7 @@
   </footer>
 
   <script>
-    // 🔄 Slideshow
+    // ✅ Slideshow Fixed
     let slideIndex = 0;
     const slides = document.querySelectorAll('.slides img');
     function showSlides() {
@@ -189,7 +189,7 @@
     }
 
     // 📤 Social Share Buttons
-    const siteURL = "https://pak-weather-live.vercel.app/";
+    const siteURL = "https://pakweatherlive.online/";
     const message = encodeURIComponent("🌦 پاکستان کا تازہ موسم دیکھیں! 🔗 Pak Weather Live: " + siteURL);
     function shareOnFacebook() { window.open(`https://www.facebook.com/sharer/sharer.php?u=${siteURL}&quote=${message}`, "_blank"); }
     function shareOnWhatsApp() { window.open(`https://api.whatsapp.com/send?text=${message}`, "_blank"); }
